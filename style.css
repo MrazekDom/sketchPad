@@ -1,0 +1,15 @@
+*{
+    box-sizing: border-box;
+}
+
+.cell{
+    border:solid 1px black;
+    width: 30px;
+    height: 30px;
+}
+
+.grid-container{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 480px;
+}
