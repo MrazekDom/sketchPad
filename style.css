@@ -13,3 +13,31 @@
     flex-wrap: wrap;
     max-width: 480px;
 }
+
+.main-container{
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    margin: 25px;
+    align-self: center;
+}
+
+.controls-container{
+    width: 100px;
+    height: 500px;
+    margin-right: 25px;
+    border:solid 1px black;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.header{
+    height: 150px;
+    width: auto;
+    border:solid 1px black;
+    margin: 25px;
+}
