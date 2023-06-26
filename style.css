@@ -27,20 +27,28 @@ body{
 }
 
 .grid-container{
+    border: solid 3px rgb(35, 167, 138);
+    border-radius: 3%;
+    padding: 10px;
     display: flex;
     flex-wrap: wrap;
-    max-width: 512px;
+    max-height: 540px;
+    max-width: 540px;
     background-color: white;
 }
 
 .controls-container{
+    border: solid 3px rgb(35, 167, 138);
+    border-radius: 3%;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 100px;
-    height: 500px;
+    height: 540px;
     margin-right: 25px;
-    border:solid 1px black;
+    background-color: white;
+    
 }
 
 
@@ -72,5 +80,5 @@ body{
 }
 
 .eraser-cursor{
-    cursor:url('data:image/x-icon;base64,AAACAAEAICACAAAAAAAwAQAAFgAAACgAAAAgAAAAQAAAAAEAAQAAAAAAgAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA66TnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAAAC4AAABuAAAA4AAAAdwAAAO4AAAHcAAABuAAAAXAAAADgAAAAAAAAA///////////////////////////////////////////////////////////////////////////////////////////////////////////+D////A////gP///wD///4A///8Af//+AP///AH///wD///8B////A////wf///8='),auto;
+    cursor:url(images/cursor.cur),auto;
 }
