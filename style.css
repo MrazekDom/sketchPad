@@ -6,6 +6,7 @@ body{
     display: flex;
     justify-content: center;
     flex-direction: column;
+    background-color: beige;
 }
 
 
@@ -38,21 +39,26 @@ body{
     border:solid 1px black;
 }
 
-.cell-big{
+.cell{
     border:solid 1px black;
+}
+
+.big{
     width: 32px;
     height: 32px;
 }
 
-.cell-medium{
-    border:solid 1px black;
+.medium{
     width: 16px;
     height: 16px;
 }
 
-.cell-small{
-    border:solid 1px black;
+.small{
     width: 8px;
     height:8px;
+}
+
+.black  {
+    background-color: black;
 }
 
