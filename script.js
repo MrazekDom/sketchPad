@@ -5,45 +5,57 @@ const BtnLarge = document.querySelector('.button-large')
 const BtnGrid = document.querySelector('.button-grid')
 const BtnEraser = document.querySelector('.button-erase')
 
-
-
-ButtonsEventListeners();
-
 let isDrawing = false;
 let eraserMode =false;
+let gridMode = true;
 
-function createGrid(numberOfCells){
+createSketchPad(1024)
+ButtonsEventListeners();
+
+
+
+
+function createSketchPad(numberOfCells){
     for(let i=0;i<numberOfCells;i++){
         let cell = document.createElement('div');
         CreateCells(cell, numberOfCells);
     }
+    if(gridMode){
+        createGrid();
+    }
+    
 }
-
-
-function ButtonsEventListeners(){
-    BtnSmall.addEventListener('click',function(){
-        container.innerHTML="";
-        createGrid(4096)
-    });
-    BtnMedium.addEventListener('click',function(){
-        container.innerHTML="";
-        createGrid(1024)
-    });
-    BtnLarge.addEventListener('click',function(){
-        container.innerHTML="";
-        createGrid(256)
-    });
-    BtnGrid.addEventListener('click',function(){
-        let cells = document.querySelector('.grid-container').children;
+function createGrid(){
+    let cells = document.querySelector('.grid-container').children;
         cellArray = Array.from(cells);
         cellArray.forEach(element => {
             if(element.classList.contains('grid')){
                 element.classList.remove('grid')
+                gridMode = false;
             }
             else{
+                gridMode = true;
                 element.classList.add('grid')
             }
         });
+}
+
+function ButtonsEventListeners(){
+    BtnSmall.addEventListener('click',function(){
+        container.innerHTML="";
+        createSketchPad(4096)
+    });
+    BtnMedium.addEventListener('click',function(){
+        container.innerHTML="";
+        createSketchPad(1024)
+    });
+    BtnLarge.addEventListener('click',function(){
+        container.innerHTML="";
+        createSketchPad(256)
+    });
+    BtnGrid.addEventListener('click',function(){
+        gridMode = !gridMode;
+        createGrid();
     });
     BtnEraser.addEventListener('click',function(){
         eraserMode = !eraserMode;
@@ -57,7 +69,7 @@ function ButtonsEventListeners(){
 }
 
 
-function cellPaint(cell) {
+function cellPaint(cell) {                      //paints or erases cells
     if(eraserMode){  
         cell.classList.add('white');  
     }
@@ -68,7 +80,7 @@ function cellPaint(cell) {
   }
 
 
-function CreateCells(cell, numberOfCells){
+function CreateCells(cell, numberOfCells){          //function for creating a single cell
     cell.addEventListener('mousedown', function() {
         isDrawing = true;
         cellPaint(cell);
@@ -91,11 +103,11 @@ function CreateCells(cell, numberOfCells){
     else{
         cell.classList.add('big')
     }
-    
     container.appendChild(cell);
+    
 }
 
-createGrid(1024)
+
 
 
 
