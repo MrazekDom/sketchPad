@@ -4,14 +4,18 @@ const BtnMedium = document.querySelector('.button-medium')
 const BtnLarge = document.querySelector('.button-large')
 const BtnGrid = document.querySelector('.button-grid')
 const BtnEraser = document.querySelector('.button-erase')
+
+
+
 ButtonsEventListeners();
+
 let isDrawing = false;
 let eraserMode =false;
 
 function createGrid(numberOfCells){
     for(let i=0;i<numberOfCells;i++){
         let cell = document.createElement('div');
-        HandleCells(cell, numberOfCells);
+        CreateCells(cell, numberOfCells);
     }
 }
 
@@ -42,29 +46,25 @@ function ButtonsEventListeners(){
         });
     });
     BtnEraser.addEventListener('click',function(){
-        if(!eraserMode){
-            eraserMode=true;
-        }
-        else{
-            eraserMode=false;
-        }
+        eraserMode = !eraserMode;
         
-    })
+    });
 }
 
 
 function cellPaint(cell) {
     if(eraserMode){
-        cell.classList.add('white')
+        cell.classList.add('white');
         
     }
     else{
+        cell.classList.remove('white');
         cell.classList.add('black'); 
     }
   }
 
 
-function HandleCells(cell, numberOfCells){
+function CreateCells(cell, numberOfCells){
     cell.addEventListener('mousedown', function() {
         isDrawing = true;
         cellPaint(cell);
