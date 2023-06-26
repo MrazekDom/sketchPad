@@ -47,15 +47,19 @@ function ButtonsEventListeners(){
     });
     BtnEraser.addEventListener('click',function(){
         eraserMode = !eraserMode;
-        
+        if(eraserMode){
+            container.classList.add('eraser-cursor')
+        }
+        else{
+            container.classList.remove('eraser-cursor')
+        }
     });
 }
 
 
 function cellPaint(cell) {
-    if(eraserMode){
-        cell.classList.add('white');
-        
+    if(eraserMode){  
+        cell.classList.add('white');  
     }
     else{
         cell.classList.remove('white');
