@@ -2,13 +2,15 @@ const container = document.querySelector('.grid-container');
 const BtnSmall = document.querySelector('.button-small')
 const BtnMedium = document.querySelector('.button-medium')
 const BtnLarge = document.querySelector('.button-large')
+const BtnGrid = document.querySelector('.button-grid')
+const BtnEraser = document.querySelector('.button-erase')
 ButtonsEventListeners();
 let isDrawing = false;
+let eraserMode =false;
 
 function createGrid(numberOfCells){
     for(let i=0;i<numberOfCells;i++){
         let cell = document.createElement('div');
-        cell.classList.add('cell')
         HandleCells(cell, numberOfCells);
     }
 }
@@ -27,10 +29,38 @@ function ButtonsEventListeners(){
         container.innerHTML="";
         createGrid(256)
     });
+    BtnGrid.addEventListener('click',function(){
+        let cells = document.querySelector('.grid-container').children;
+        cellArray = Array.from(cells);
+        cellArray.forEach(element => {
+            if(element.classList.contains('grid')){
+                element.classList.remove('grid')
+            }
+            else{
+                element.classList.add('grid')
+            }
+        });
+    });
+    BtnEraser.addEventListener('click',function(){
+        if(!eraserMode){
+            eraserMode=true;
+        }
+        else{
+            eraserMode=false;
+        }
+        
+    })
 }
 
+
 function cellPaint(cell) {
-    cell.classList.add('black');
+    if(eraserMode){
+        cell.classList.add('white')
+        
+    }
+    else{
+        cell.classList.add('black'); 
+    }
   }
 
 
@@ -61,9 +91,7 @@ function HandleCells(cell, numberOfCells){
     container.appendChild(cell);
 }
 
-
-// createGrid(256)
 createGrid(1024)
-//   createGrid(4096)
+
 
 

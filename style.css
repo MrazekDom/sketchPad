@@ -34,15 +34,15 @@ body{
 }
 
 .controls-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 100px;
     height: 500px;
     margin-right: 25px;
     border:solid 1px black;
 }
 
-.cell{
-    border:solid 1px black;
-}
 
 .big{
     width: 32px;
@@ -63,3 +63,10 @@ body{
     background-color: black;
 }
 
+.grid{
+    border: solid 1px black;
+}
+
+.white{
+    background-color: white;
+}
