@@ -1,4 +1,8 @@
 const container = document.querySelector('.grid-container');
+const BtnSmall = document.querySelector('.button-small')
+const BtnMedium = document.querySelector('.button-medium')
+const BtnLarge = document.querySelector('.button-large')
+ButtonsEventListeners();
 let isDrawing = false;
 
 function createGrid(numberOfCells){
@@ -7,6 +11,22 @@ function createGrid(numberOfCells){
         cell.classList.add('cell')
         HandleCells(cell, numberOfCells);
     }
+}
+
+
+function ButtonsEventListeners(){
+    BtnSmall.addEventListener('click',function(){
+        container.innerHTML="";
+        createGrid(4096)
+    });
+    BtnMedium.addEventListener('click',function(){
+        container.innerHTML="";
+        createGrid(1024)
+    });
+    BtnLarge.addEventListener('click',function(){
+        container.innerHTML="";
+        createGrid(256)
+    });
 }
 
 function cellPaint(cell) {
@@ -42,7 +62,7 @@ function HandleCells(cell, numberOfCells){
 }
 
 
-// createGrid(16,16)
+// createGrid(256)
 createGrid(1024)
 //   createGrid(4096)
 
