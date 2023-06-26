@@ -2,16 +2,19 @@
     box-sizing: border-box;
 }
 
-.cell{
-    border:solid 1px black;
-    width: 30px;
-    height: 30px;
+body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
-.grid-container{
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 480px;
+
+
+.header{
+    height: 150px;
+    width: auto;
+    border:solid 1px black;
+    margin: 25px;
 }
 
 .main-container{
@@ -22,6 +25,12 @@
     align-self: center;
 }
 
+.grid-container{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 512px;
+}
+
 .controls-container{
     width: 100px;
     height: 500px;
@@ -29,15 +38,21 @@
     border:solid 1px black;
 }
 
-body{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+.cell-big{
+    border:solid 1px black;
+    width: 32px;
+    height: 32px;
 }
 
-.header{
-    height: 150px;
-    width: auto;
+.cell-medium{
     border:solid 1px black;
-    margin: 25px;
+    width: 16px;
+    height: 16px;
 }
+
+.cell-small{
+    border:solid 1px black;
+    width: 8px;
+    height:8px;
+}
+
