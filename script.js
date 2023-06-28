@@ -4,14 +4,17 @@ const BtnMedium = document.querySelector('.button-medium')
 const BtnLarge = document.querySelector('.button-large')
 const BtnGrid = document.querySelector('.button-grid')
 const BtnEraser = document.querySelector('.button-erase')
+const ColourChooser = document.querySelector('#colourChoice')
 
 let isDrawing = false;
 let eraserMode =false;
 let gridMode = true;
 
+
 createSketchPad(1024)
 ButtonsEventListeners();
 
+const color = ColourChooser.value;
 
 
 
@@ -55,15 +58,23 @@ function ButtonsEventListeners(){
     });
     BtnGrid.addEventListener('click',function(){
         gridMode = !gridMode;
+        if(!gridMode){
+            BtnGrid.classList.add('using');
+        }
+        else{
+            BtnGrid.classList.remove('using');
+        }
         createGrid();
     });
     BtnEraser.addEventListener('click',function(){
         eraserMode = !eraserMode;
         if(eraserMode){
             container.classList.add('eraser-cursor')
+            BtnEraser.classList.add('using');
         }
         else{
             container.classList.remove('eraser-cursor')
+            BtnEraser.classList.remove('using');
         }
     });
 }
@@ -71,11 +82,10 @@ function ButtonsEventListeners(){
 
 function cellPaint(cell) {                      //paints or erases cells
     if(eraserMode){  
-        cell.classList.add('white');  
+        cell.style.backgroundColor = 'white';
     }
     else{
-        cell.classList.remove('white');
-        cell.classList.add('black'); 
+        cell.style.backgroundColor = ColourChooser.value;
     }
   }
 

@@ -2,20 +2,41 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: myFirstFont;
+    src: url(Sketchzone.otf);
+}
+
 body{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-color: beige;
+    background-color: #E2D1F9;
 }
 
+label{
+    font-family: myFirstFont;
+}
 
 
 .header{
     height: 150px;
     width: auto;
-    border:solid 1px black;
+    border:solid 2px #f4b19d;
     margin: 25px;
+    background-color: #b2586f;
+    display: flex;
+    justify-content: center;
+    border-radius: 3%;
+    
+    
+    
+}
+.header>h1{
+    /* color: #f4b19d; */
+    align-self: center;
+    font-family: myFirstFont;
+    font-size: 75px;
 }
 
 .main-container{
@@ -27,7 +48,7 @@ body{
 }
 
 .grid-container{
-    border: solid 1px rgb(35, 167, 138);
+    border: solid 1px #f4b19d;
     display: flex;
     flex-wrap: wrap;
     max-height: 512px;
@@ -36,7 +57,7 @@ body{
 }
 
 .controls-container{
-    border: solid 3px rgb(35, 167, 138);
+    border: solid 3px #f4b19d;
     border-radius: 3%;
     padding: 10px;
     display: flex;
@@ -45,10 +66,17 @@ body{
     width: 100px;
     height: 512px;
     margin-right: 25px;
-    background-color: white;
+    background-color: #b2586f;
     
 }
 
+.using{
+    background-color: #E2D1F9;
+    transform: scale(1.1);
+    border-color: #ffc600;
+    box-shadow: 0 0 1rem #ffc600;
+      
+}
 
 .big{
     width: 32px;
@@ -65,9 +93,6 @@ body{
     height:8px;
 }
 
-.black  {
-    background-color: black;
-}
 
 .grid{
     border: solid 1px black;
@@ -79,4 +104,8 @@ body{
 
 .eraser-cursor{
     cursor:url(images/cursor.cur),auto;
+}
+
+#colourChoice{
+    margin-top: 5px;
 }
